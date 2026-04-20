@@ -50,6 +50,7 @@ function AdminAnnouncementsContent() {
     setError(null)
 
     try {
+      if (!profile.parish_id) return
       const parishAnnouncements = await getParishAnnouncements(profile.parish_id)
       setAnnouncements(parishAnnouncements)
     } catch (err) {
