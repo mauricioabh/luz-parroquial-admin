@@ -119,7 +119,7 @@ function AdminAnnouncementsContent() {
   }
 
   const handleFormSubmit = async (data: AnnouncementInsert | AnnouncementUpdate) => {
-    if (!profile) return
+    if (!profile?.parish_id) return
 
     try {
       if (editingAnnouncement) {
