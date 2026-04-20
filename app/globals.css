@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Warm, sacred color palette - no pure black */
+  --background: #faf8f5;
+  --foreground: #2c2416;
+  --muted: #8b7d6b;
+  --muted-foreground: #a89b8a;
+  --border: #e8e3db;
+  --input: #ffffff;
+  --ring: #b8945f;
+  --primary: #b8945f;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f1eb;
+  --secondary-foreground: #3d3528;
+  --accent: #d4a574;
+  --accent-foreground: #2c2416;
+  --destructive: #c85a4a;
+  --destructive-foreground: #ffffff;
+  --success: #7a8b6f;
+  --success-foreground: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #2c2416;
+  --gold: #b8945f;
+  --gold-light: #d4a574;
+  --gold-dark: #9a7a4a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--border);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Serif headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Subtle, calm transitions - no bounce */
+button, a, input, textarea, select {
+  transition: all 0.3s ease-out;
+}
+
+/* Remove any bounce animations */
+@keyframes bounce {
+  from, to {
+    animation-timing-function: ease-out;
+  }
+}
+
+/* Safe area support for mobile notches */
+@supports (padding: max(0px)) {
+  .safe-area-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+  
+  .safe-area-top {
+    padding-top: max(0px, env(safe-area-inset-top));
+  }
+}
+
+/* Ensure buttons have good touch targets on mobile */
+button,
+a[role="button"],
+[role="button"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Full width buttons on mobile by default when inside form */
+@media (max-width: 640px) {
+  form button[type="submit"],
+  form button[type="button"] {
+    width: 100%;
+  }
 }
