@@ -30,7 +30,7 @@ export default function AuditLogView() {
   const [filterEndDate, setFilterEndDate] = useState('')
 
   const loadLogs = async () => {
-    if (!profile) {
+    if (!profile?.parish_id) {
       setLoading(false)
       return
     }
