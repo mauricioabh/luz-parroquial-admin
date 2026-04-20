@@ -25,15 +25,18 @@ export default function EmailConfirmedPage() {
           Luz Parroquial
         </p>
         <p className="mt-2 text-sm text-muted-foreground">
-          Oración y rezo
+          Tu espacio para rezar y acompañar tu oración
         </p>
-        <h1 className="mt-8 font-serif text-xl font-semibold text-foreground">
-          Correo confirmado
+        <div className="my-8 h-px w-16 mx-auto bg-primary opacity-40" />
+        <h1 className="font-serif text-xl font-semibold text-foreground">
+          ¡Bienvenido/a!
         </h1>
-        <p className="mt-4 text-[15px] leading-relaxed text-muted">
-          Gracias por registrarte. Tu cuenta ya está lista: abre la app Luz
-          Parroquial en tu dispositivo e inicia sesión con el mismo correo y
-          contraseña.
+        <p className="mt-1 text-sm text-muted-foreground">
+          Tu correo ha sido confirmado
+        </p>
+        <p className="mt-5 text-[15px] leading-relaxed text-muted">
+          Tu cuenta está lista. Abre Luz Parroquial e inicia sesión con el
+          mismo correo y contraseña para comenzar a rezar.
         </p>
         <a
           href={PLAY_STORE_URL}
@@ -42,8 +45,7 @@ export default function EmailConfirmedPage() {
           Abrir en Google Play
         </a>
         <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
-          Esta página es solo de confirmación; no es el panel de administración
-          parroquial.
+          Esta página es solo de confirmación; no es el panel de administración.
         </p>
       </div>
     </main>
