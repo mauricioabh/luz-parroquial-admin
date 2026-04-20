@@ -74,7 +74,7 @@ function WaitlistContent() {
   }
 
   const loadAvailableEvents = async () => {
-    if (!profile) return
+    if (!profile?.parish_id) return
 
     try {
       const events = await getEventsWithAvailableCapacity(profile.parish_id)

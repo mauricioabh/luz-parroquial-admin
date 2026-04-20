@@ -27,7 +27,7 @@ function CalendarContent() {
   const [selectedMonth, setSelectedMonth] = useState(new Date())
 
   const loadUpcomingEvents = async () => {
-    if (!profile) {
+    if (!profile?.parish_id) {
       setLoading(false)
       return
     }
@@ -46,7 +46,7 @@ function CalendarContent() {
   }
 
   const loadMonthEvents = async () => {
-    if (!profile) return
+    if (!profile?.parish_id) return
 
     setLoading(true)
     setError(null)

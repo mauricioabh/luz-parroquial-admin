@@ -84,7 +84,7 @@ function MassIntentionsContent() {
   }
 
   const loadEvents = async () => {
-    if (!profile) return
+    if (!profile?.parish_id) return
 
     setLoadingEvents(true)
     try {

@@ -57,12 +57,12 @@ function EventMassIntentionsContent() {
   const [fulfillingAll, setFulfillingAll] = useState(false)
 
   useEffect(() => {
-    if (!eventId || !profile) return
+    if (!eventId || !profile?.parish_id) return
     loadData()
   }, [eventId, profile])
 
   const loadData = async () => {
-    if (!eventId || !profile) return
+    if (!eventId || !profile?.parish_id) return
 
     setLoading(true)
     setError(null)

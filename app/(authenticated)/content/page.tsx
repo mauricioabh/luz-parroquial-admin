@@ -37,7 +37,7 @@ function ContentContent() {
   const [publishingId, setPublishingId] = useState<string | null>(null)
 
   const loadPosts = async () => {
-    if (!profile) {
+    if (!profile?.parish_id) {
       setLoading(false)
       return
     }
@@ -98,7 +98,7 @@ function ContentContent() {
   }
 
   const handleFormSubmit = async (data: PostInsert | PostUpdate) => {
-    if (!profile) return
+    if (!profile?.parish_id) return
 
     try {
       if (editingPost) {

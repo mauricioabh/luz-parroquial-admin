@@ -44,7 +44,7 @@ function AdminMassSchedulesContent() {
   const [generateResult, setGenerateResult] = useState<string | null>(null)
 
   const loadSchedules = async () => {
-    if (!profile) {
+    if (!profile?.parish_id) {
       setLoading(false)
       return
     }
@@ -131,7 +131,7 @@ function AdminMassSchedulesContent() {
   }
 
   const handleFormSubmit = async (data: MassScheduleInsert | MassScheduleUpdate) => {
-    if (!profile) return
+    if (!profile?.parish_id) return
 
     try {
       if (editingSchedule) {

@@ -30,7 +30,7 @@ function AnnouncementsContent() {
   const [expandedId, setExpandedId] = useState<string | null>(null)
 
   const loadAnnouncements = async () => {
-    if (!profile) {
+    if (!profile?.parish_id) {
       setLoading(false)
       return
     }

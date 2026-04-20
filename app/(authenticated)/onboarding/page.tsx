@@ -22,7 +22,7 @@ export default function OnboardingPage() {
 
   useEffect(() => {
     const loadParishInfo = async () => {
-      if (!profile) return
+      if (!profile?.parish_id) return
 
       try {
         const { data: parishData, error: parishError } = await supabase

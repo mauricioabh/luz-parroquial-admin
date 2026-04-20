@@ -31,7 +31,7 @@ function AdminUsersContent() {
 
   useEffect(() => {
     const loadData = async () => {
-      if (!profile) {
+      if (!profile?.parish_id) {
         setLoading(false)
         return
       }
@@ -116,7 +116,7 @@ function AdminUsersContent() {
   }
 
   const confirmRoleChange = async () => {
-    if (!pendingRoleChange || !profile) return
+    if (!pendingRoleChange || !profile?.parish_id) return
 
     setChangingRole(true)
     try {
@@ -151,7 +151,7 @@ function AdminUsersContent() {
   }
 
   const handleRevertRole = async (roleHistoryId: string) => {
-    if (!profile) return
+    if (!profile?.parish_id) return
 
     try {
       const { data: { session } } = await supabase.auth.getSession()
@@ -182,7 +182,7 @@ function AdminUsersContent() {
 
   const handleInviteSuccess = async () => {
     setShowInviteForm(false)
-    if (profile) {
+    if (profile?.parish_id) {
       setLoading(true)
       setError(null)
       try {

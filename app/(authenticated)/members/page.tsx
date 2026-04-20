@@ -32,7 +32,7 @@ function MembersContent() {
   const [deletingId, setDeletingId] = useState<string | null>(null)
 
   const loadMembers = async () => {
-    if (!profile) {
+    if (!profile?.parish_id) {
       setLoading(false)
       return
     }
@@ -81,7 +81,7 @@ function MembersContent() {
   }
 
   const handleFormSubmit = async (data: MemberInsert | MemberUpdate) => {
-    if (!profile) return
+    if (!profile?.parish_id) return
 
     try {
       if (editingMember) {

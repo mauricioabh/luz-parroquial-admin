@@ -99,7 +99,7 @@ function MassIntentionsContent() {
   }, [intentions])
 
   const loadIntentions = async () => {
-    if (!profile) return
+    if (!profile?.parish_id) return
 
     setLoading(true)
     setError(null)

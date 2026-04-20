@@ -40,7 +40,7 @@ function EventsContent() {
   const [viewMode, setViewMode] = useState<'list' | 'calendar'>('list')
 
   const loadEvents = async () => {
-    if (!profile) {
+    if (!profile?.parish_id) {
       setLoading(false)
       return
     }
@@ -101,7 +101,7 @@ function EventsContent() {
   }
 
   const handleFormSubmit = async (data: EventInsert | EventUpdate) => {
-    if (!profile) return
+    if (!profile?.parish_id) return
 
     try {
       if (editingEvent) {

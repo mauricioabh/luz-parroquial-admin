@@ -50,7 +50,7 @@ function AdminMinistriesContent() {
   const [processingRequestId, setProcessingRequestId] = useState<string | null>(null)
 
   const loadMinistries = async () => {
-    if (!profile) {
+    if (!profile?.parish_id) {
       setLoading(false)
       return
     }
@@ -69,7 +69,7 @@ function AdminMinistriesContent() {
   }
 
   const loadJoinRequests = async () => {
-    if (!profile) {
+    if (!profile?.parish_id) {
       setLoadingRequests(false)
       return
     }
@@ -165,7 +165,7 @@ function AdminMinistriesContent() {
   }
 
   const handleFormSubmit = async (data: MinistryInsert | MinistryUpdate) => {
-    if (!profile) return
+    if (!profile?.parish_id) return
 
     try {
       if (editingMinistry) {
