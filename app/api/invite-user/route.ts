@@ -100,7 +100,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if user already exists
-    const { data: existingUser } = await supabaseAdmin.auth.admin.getUserByEmail(email)
+    const { data: existingUser } = await (supabaseAdmin.auth.admin as unknown as {
+      getUserByEmail: (email: string) => Promise<{ data: { user: { id: string } | null } | null; error: unknown }>
+    }).getUserByEmail(email)
     if (existingUser?.user) {
       return NextResponse.json(
         { error: 'User with this email already exists' },

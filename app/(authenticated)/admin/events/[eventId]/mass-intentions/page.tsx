@@ -342,7 +342,7 @@ function EventMassIntentionsContent() {
             {intentions.length > 0 && hasUnfulfilledIntentions && (
               <Button
                 onClick={() => setFulfillAllModalOpen(true)}
-                variant="default"
+                variant="primary"
                 size="sm"
                 className="whitespace-nowrap"
               >
@@ -610,7 +610,7 @@ function EventMassIntentionsContent() {
             <Button
               onClick={handleMarkAllFulfilled}
               disabled={fulfillingAll}
-              variant="default"
+              variant="primary"
             >
               {fulfillingAll ? 'Marcando como Cumplidas...' : 'Marcar Todas como Cumplidas'}
             </Button>

@@ -141,8 +141,7 @@ function MassIntentionsContent() {
       // Reset form
       setFormData({
         intention: '',
-        mass_date: '',
-        mass_time: '',
+        event_id: '',
         offering_amount: null,
       })
       setShowForm(false)
@@ -301,7 +300,7 @@ function MassIntentionsContent() {
                         value={event.id}
                         disabled={isFull}
                       >
-                        {formatEventDateTime(event)} - {event.title}
+                        {formatEventDateTime(event.starts_at)} - {event.title}
                         {isFull
                           ? ' (Completo)'
                           : ` (${availableSlots}/${maxIntentions} disponibles)`}
@@ -446,7 +445,7 @@ function MassIntentionsContent() {
                     {intention.offering_status === 'pending' && 
                      (intention.status === 'promoted' || intention.status === 'confirmed') && (
                       <Button
-                        variant="default"
+                        variant="primary"
                         size="sm"
                         onClick={() => handlePayOnline(intention.id)}
                         disabled={processingPayment === intention.id}

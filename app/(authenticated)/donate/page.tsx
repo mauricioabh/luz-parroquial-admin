@@ -106,7 +106,7 @@ function DonateContent() {
                   <Button
                     key={presetAmount}
                     type="button"
-                    variant={amount === presetAmount ? 'default' : 'outline'}
+                    variant={amount === presetAmount ? 'primary' : 'outline'}
                     onClick={() => handlePresetClick(presetAmount)}
                     className="w-full"
                   >

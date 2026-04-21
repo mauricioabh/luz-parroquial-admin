@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 interface ResetDemoButtonProps {
   className?: string
-  variant?: 'default' | 'outline' | 'ghost' | 'destructive'
+  variant?: 'primary' | 'outline' | 'ghost' | 'destructive'
   size?: 'sm' | 'md' | 'lg'
 }
 

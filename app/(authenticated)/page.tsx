@@ -55,6 +55,7 @@ function DashboardContent() {
           req => req.status === 'submitted' || req.status === 'in_review'
         ).length
         const upcomingMassIntentions = massIntentions.filter(intention => {
+          if (!intention.mass_date) return false
           const massDate = new Date(intention.mass_date)
           return massDate >= today
         }).length

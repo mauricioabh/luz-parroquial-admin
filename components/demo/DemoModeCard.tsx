@@ -113,7 +113,7 @@ export function DemoModeCard() {
           )}
 
           <div className="pt-2">
-            <ResetDemoButton variant="default" size="md" />
+            <ResetDemoButton variant="primary" size="md" />
           </div>
         </div>
       </div>

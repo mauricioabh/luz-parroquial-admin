@@ -80,6 +80,7 @@ export default function MassScheduleForm({
 
   return (
     <Modal
+      isOpen
       title={schedule ? 'Editar Horario de Misa' : 'Crear Horario de Misa'}
       onClose={onCancel}
     >

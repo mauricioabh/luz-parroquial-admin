@@ -63,11 +63,11 @@ function MinistriesContent() {
       // Reload ministries to update request status
       await loadMinistries()
       // Update selected ministry if viewing it
-      if (selectedMinistry?.id === ministryId) {
+      if (selectedMinistry?.id === ministryId && profile?.parish_id) {
         const updated = await getMinistry(ministryId)
         if (updated) {
           // Check membership and request status
-          const updatedMinistries = await getPublicMinistries(profile!.parish_id)
+          const updatedMinistries = await getPublicMinistries(profile.parish_id)
           const found = updatedMinistries.find((m) => m.id === ministryId)
           if (found) {
             setSelectedMinistry(found)
@@ -93,11 +93,11 @@ function MinistriesContent() {
       // Reload ministries to update membership status
       await loadMinistries()
       // Update selected ministry if viewing it
-      if (selectedMinistry?.id === ministryId) {
+      if (selectedMinistry?.id === ministryId && profile?.parish_id) {
         const updated = await getMinistry(ministryId)
         if (updated) {
           // Check membership status
-          const updatedMinistries = await getPublicMinistries(profile!.parish_id)
+          const updatedMinistries = await getPublicMinistries(profile.parish_id)
           const found = updatedMinistries.find((m) => m.id === ministryId)
           if (found) {
             setSelectedMinistry(found)

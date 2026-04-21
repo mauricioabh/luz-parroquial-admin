@@ -191,20 +191,29 @@ class EmailService {
 
     try {
       const recipients = Array.isArray(options.to) ? options.to : [options.to]
-      const data = await this.resend.emails.send({
+      const response = await this.resend.emails.send({
         from: options.from,
         to: recipients,
         subject: options.subject,
         html: options.html,
       })
 
+      if (response.error) {
+        return {
+          success: false,
+          error: response.error.message || 'Unknown Resend error',
+        }
+      }
+
+      const messageId = response.data?.id
+
       console.log(`✅ Email sent via Resend to ${recipients.join(', ')}`)
-      console.log(`   Message ID: ${data.id}`)
+      console.log(`   Message ID: ${messageId ?? 'unknown'}`)
       console.log(`   View in Resend Dashboard: https://resend.com/emails`)
 
       return {
         success: true,
-        messageId: data.id,
+        messageId,
       }
     } catch (error) {
       console.error('Resend send error:', error)

@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/Button'
 interface EmptyStateProps {
   title: string
   description: string
-  actionLabel: string
-  onAction: () => void
+  actionLabel?: string
+  onAction?: () => void
   secondaryDescription?: string
 }
 
@@ -32,13 +32,15 @@ export function EmptyState({
             {secondaryDescription}
           </p>
         )}
-        <Button
-          onClick={onAction}
-          variant="outline"
-          className="mt-6"
-        >
-          {actionLabel}
-        </Button>
+        {actionLabel && onAction && (
+          <Button
+            onClick={onAction}
+            variant="outline"
+            className="mt-6"
+          >
+            {actionLabel}
+          </Button>
+        )}
       </CardContent>
     </Card>
   )

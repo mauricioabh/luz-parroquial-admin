@@ -243,6 +243,13 @@ function MassIntentionsContent() {
       case 'scheduled':
         return 'fulfilled'
       case 'fulfilled':
+      case 'confirmed':
+      case 'waitlist':
+      case 'promoted':
+      case 'cancelled':
+      case 'rejected':
+        return null
+      default:
         return null
     }
   }
@@ -396,7 +403,7 @@ function MassIntentionsContent() {
                             <Button
                               variant="outline"
                               size="sm"
-                              onClick={() => handleUpdateOfferingStatus(intention.id, 'received')}
+                              onClick={() => handleUpdateOfferingStatus(intention.id, 'paid_cash')}
                               disabled={updatingOffering === intention.id}
                               className="ml-2"
                             >
@@ -440,7 +447,7 @@ function MassIntentionsContent() {
                   </div>
                   {nextStatus && (
                     <Button
-                      variant="default"
+                      variant="primary"
                       size="sm"
                       onClick={() => handleUpdateStatusClick(intention)}
                       className="flex-shrink-0"
@@ -517,7 +524,7 @@ function MassIntentionsContent() {
                   Cancelar
                 </Button>
                 <Button
-                  variant="default"
+                  variant="primary"
                   onClick={handleUpdateStatus}
                   disabled={updating}
                 >

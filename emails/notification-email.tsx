@@ -35,7 +35,7 @@ export const NotificationEmail = ({
     <Html>
       <Head />
       <Preview>
-        Tienes {notificationCount} nueva{notificationCount === 1 ? '' : 's'} notificación{notificationCount === 1 ? '' : 'es'}
+        {`Tienes ${notificationCount} nueva${notificationCount === 1 ? '' : 's'} notificación${notificationCount === 1 ? '' : 'es'}`}
       </Preview>
       <Body style={main}>
         <Container style={container}>

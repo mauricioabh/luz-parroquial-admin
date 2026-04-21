@@ -275,7 +275,7 @@ function AdminMinistriesContent() {
                         <p className="font-medium text-[var(--foreground)]">
                           {request.profile?.full_name || 'Usuario Desconocido'}
                         </p>
-                        <Badge variant={request.status === 'in_review' ? 'default' : 'secondary'}>
+                        <Badge variant={request.status === 'in_review' ? 'info' : 'default'}>
                           {request.status === 'in_review' ? 'En Revisión' : 'Enviado'}
                         </Badge>
                       </div>
@@ -430,9 +430,9 @@ function AdminMinistriesContent() {
                   </div>
                   <div className="flex gap-1">
                     {ministry.is_public ? (
-                      <Badge variant="default">Público</Badge>
+                      <Badge variant="success">Público</Badge>
                     ) : (
-                      <Badge variant="secondary">Privado</Badge>
+                      <Badge variant="default">Privado</Badge>
                     )}
                   </div>
                 </div>

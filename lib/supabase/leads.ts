@@ -139,18 +139,18 @@ export async function updateLeadNotes(id: string, notes: string | null): Promise
 /**
  * Get status badge variant for UI
  */
-export function getStatusBadgeVariant(status: LeadStatus): 'default' | 'secondary' | 'destructive' | 'outline' {
+export function getStatusBadgeVariant(status: LeadStatus): 'default' | 'info' | 'warning' | 'success' | 'destructive' {
   switch (status) {
     case 'contacted':
-      return 'outline'
+      return 'default'
     case 'demoed':
-      return 'secondary'
+      return 'info'
     case 'trial':
-      return 'default'
+      return 'warning'
     case 'converted':
-      return 'default'
+      return 'success'
     default:
-      return 'outline'
+      return 'default'
   }
 }
 

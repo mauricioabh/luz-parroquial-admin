@@ -145,7 +145,7 @@ export async function requestPushNotificationPermission(): Promise<PushSubscript
     userVisibleOnly: true,
     applicationServerKey: urlBase64ToUint8Array(
       process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY || ''
-    ),
+    ) as BufferSource,
   })
 
   // Convert subscription to format needed for database

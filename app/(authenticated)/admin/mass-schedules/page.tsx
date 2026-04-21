@@ -208,7 +208,7 @@ function AdminMassSchedulesContent() {
                       {schedule.is_active ? (
                         <Badge variant="success">Activo</Badge>
                       ) : (
-                        <Badge variant="secondary">Inactivo</Badge>
+                        <Badge variant="default">Inactivo</Badge>
                       )}
                     </div>
                     <div className="space-y-1 text-sm text-[var(--muted-foreground)]">
@@ -267,6 +267,7 @@ function AdminMassSchedulesContent() {
 
       {showGenerateModal && editingSchedule && (
         <Modal
+          isOpen
           title={`Generar Eventos: ${editingSchedule.title}`}
           onClose={() => {
             setShowGenerateModal(false)

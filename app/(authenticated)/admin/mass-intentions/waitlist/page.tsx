@@ -247,7 +247,7 @@ function WaitlistContent() {
                   <div className="flex gap-2">
                     <Button
                       onClick={() => handlePromoteClick(intention)}
-                      variant="default"
+                      variant="primary"
                     >
                       Promover a Misa
                     </Button>

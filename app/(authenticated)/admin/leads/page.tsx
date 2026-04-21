@@ -458,6 +458,7 @@ function LeadForm({ lead, onSubmit, onCancel }: LeadFormProps) {
 
   return (
     <Modal
+      isOpen
       title={lead ? 'Editar Lead' : 'Agregar Lead'}
       onClose={onCancel}
     >

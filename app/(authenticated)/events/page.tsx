@@ -241,7 +241,7 @@ function EventsContent() {
                         <Badge variant="warning">Privado</Badge>
                       )}
                       {isPast(event.starts_at) && (
-                        <Badge variant="secondary">Pasado</Badge>
+                        <Badge variant="default">Pasado</Badge>
                       )}
                     </div>
                     <div className="space-y-1 text-sm text-[var(--muted-foreground)]">

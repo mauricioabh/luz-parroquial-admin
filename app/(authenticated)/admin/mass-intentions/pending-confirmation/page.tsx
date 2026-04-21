@@ -238,7 +238,7 @@ function PendingConfirmationContent() {
                   )}
                 </div>
                 <Button
-                  variant="default"
+                  variant="primary"
                   size="sm"
                   onClick={() => handleConfirmClick(intention)}
                   className="flex-shrink-0"
@@ -357,7 +357,7 @@ function PendingConfirmationContent() {
                   Cancelar
                 </Button>
                 <Button
-                  variant="default"
+                  variant="primary"
                   onClick={handleConfirm}
                   disabled={confirming || (offeringStatus !== 'waived' && (!offeringAmount || parseFloat(offeringAmount) <= 0))}
                 >

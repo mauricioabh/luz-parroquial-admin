@@ -13,6 +13,7 @@ export interface Event {
   is_public: boolean
   created_by: string
   created_at: string
+  max_intentions?: number | null
 }
 
 export interface EventInsert {

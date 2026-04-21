@@ -71,7 +71,7 @@ export async function getWelcomeEmailTemplate(
   const template = await getTemplate('welcome_email')
   if (!template) return null
 
-  const rendered = renderTemplate(template, variables)
+  const rendered = await renderTemplate(template, variables)
   return {
     subject: rendered.subject || 'Welcome to Luz Parroquial!',
     content: rendered.content
@@ -93,7 +93,7 @@ export async function getAnnouncementTextTemplate(
   const template = await getTemplate('announcement_text')
   if (!template) return null
 
-  const rendered = renderTemplate(template, variables)
+  const rendered = await renderTemplate(template, variables)
   return rendered.content
 }
 
@@ -113,7 +113,7 @@ export async function getBulletinInsertTemplate(
   const template = await getTemplate('bulletin_insert')
   if (!template) return null
 
-  const rendered = renderTemplate(template, variables)
+  const rendered = await renderTemplate(template, variables)
   return rendered.content
 }
 
@@ -131,7 +131,7 @@ export async function getDemoInviteEmailTemplate(
   const template = await getTemplate('demo_invite_email')
   if (!template) return null
 
-  const rendered = renderTemplate(template, variables)
+  const rendered = await renderTemplate(template, variables)
   return {
     subject: rendered.subject || 'Demo Invitation: Experience Luz Parroquial',
     content: rendered.content
@@ -156,7 +156,7 @@ export async function getFollowUpEmailTemplate(
   const template = await getTemplate('follow_up_email')
   if (!template) return null
 
-  const rendered = renderTemplate(template, variables)
+  const rendered = await renderTemplate(template, variables)
   return {
     subject: rendered.subject || `Following up: Luz Parroquial for ${variables.parish_name}`,
     content: rendered.content

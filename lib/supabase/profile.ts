@@ -114,6 +114,7 @@ export async function getParishMembers(parishId: string): Promise<UserProfile[]>
     role_id: profile.role_id,
     role_name: roleMap.get(profile.role_id) || 'parishioner' as RoleName,
     parish_id: profile.parish_id,
+    diocese_id: null,
     full_name: profile.full_name
   }))
 }
@@ -175,8 +176,18 @@ export async function getParishProfilesWithEmail(parishId: string): Promise<Prof
     return []
   }
 
+  type RpcProfileRow = {
+    id: string
+    role_id: string
+    role_name: string
+    parish_id: string
+    full_name: string
+    email: string | null
+    created_at: string
+  }
+
   // The RPC function now returns role_id and role_name, so we can use it directly
-  return data.map(profile => ({
+  return (data as RpcProfileRow[]).map((profile) => ({
     id: profile.id,
     role_id: profile.role_id,
     role_name: profile.role_name as RoleName,

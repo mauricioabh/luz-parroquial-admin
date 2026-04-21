@@ -444,7 +444,7 @@ function SacramentRequestsContent() {
 
               <div className="pt-6 border-t border-border">
                 <Button
-                  variant="default"
+                  variant="primary"
                   className="w-full"
                   onClick={(e) => {
                     e.stopPropagation()
@@ -557,7 +557,7 @@ function UpdateStatusForm({ request, onUpdate, onCancel }: UpdateStatusFormProps
                 Cancelar
               </Button>
               <Button
-                variant="default"
+                variant="primary"
                 onClick={handleSubmit}
                 disabled={updating}
               >

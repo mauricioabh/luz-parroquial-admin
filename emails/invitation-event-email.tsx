@@ -95,7 +95,7 @@ export const InvitationEventEmail = ({
             <Text style={paragraph}>{content.message}</Text>
 
             {content.details && (
-              <Text style={paragraph} style={{ whiteSpace: 'pre-line' }}>
+              <Text style={{ ...paragraph, whiteSpace: 'pre-line' }}>
                 {content.details}
               </Text>
             )}
@@ -108,7 +108,7 @@ export const InvitationEventEmail = ({
               </Section>
             )}
 
-            <Text style={paragraph} style={{ whiteSpace: 'pre-line' }}>
+            <Text style={{ ...paragraph, whiteSpace: 'pre-line' }}>
               {content.footer}
             </Text>
           </Section>
