@@ -1,24 +1,47 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import { createServerClient } from '@supabase/ssr'
 import { cookies } from 'next/headers'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
+/**
+ * Construye el cliente admin con service-role solo cuando se necesita.
+ * Hacerlo perezoso evita que el `throw` por env faltante reviente el build
+ * cuando Next.js evalúa los módulos al hacer "Collecting page data".
+ */
+let cachedAdmin: SupabaseClient | null = null
+function buildSupabaseAdmin(): SupabaseClient {
+  if (cachedAdmin) return cachedAdmin
 
-const supabaseServiceKey = process.env.SUPABASE_SECRET_KEY
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseServiceKey = process.env.SUPABASE_SECRET_KEY
 
-if (!supabaseUrl) {
-  throw new Error('Missing env.NEXT_PUBLIC_SUPABASE_URL')
+  if (!supabaseUrl) {
+    throw new Error('Missing env.NEXT_PUBLIC_SUPABASE_URL')
+  }
+  if (!supabaseServiceKey) {
+    throw new Error('Missing env.SUPABASE_SECRET_KEY')
+  }
+
+  cachedAdmin = createClient(supabaseUrl, supabaseServiceKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  })
+  return cachedAdmin
 }
 
-if (!supabaseServiceKey) {
-  throw new Error('Missing env.SUPABASE_SECRET_KEY')
-}
-
-// Server-side Supabase client with service/secret role (bypasses RLS)
-export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false,
+/**
+ * Proxy con la misma forma que `SupabaseClient` que delega a una instancia
+ * inicializada perezosamente. Mantiene la API pública sin tocar a los
+ * importadores existentes (`supabaseAdmin.from(...)`, `supabaseAdmin.auth.admin...`).
+ */
+export const supabaseAdmin: SupabaseClient = new Proxy({} as SupabaseClient, {
+  get(_target, prop, receiver) {
+    const client = buildSupabaseAdmin()
+    return Reflect.get(client, prop, receiver)
+  },
+  has(_target, prop) {
+    return prop in buildSupabaseAdmin()
   },
 })
 
