@@ -117,7 +117,47 @@ export default function DataRequestPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-4 py-12">
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-2xl mx-auto space-y-6">
+        <Card className="border-[var(--border)] shadow-sm">
+          <CardHeader>
+            <CardTitle className="text-xl">Luz Parroquial — Cuenta y datos personales</CardTitle>
+            <CardDescription>
+              Canal oficial para solicitudes de protección de datos y eliminación de cuenta de la app móvil.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-3 text-sm text-[var(--foreground)]">
+            <p>
+              Esta página es el canal oficial de <strong>Luz Parroquial</strong> (aplicación móvil de oración y
+              servicios asociados) para solicitudes de protección de datos y <strong>eliminación de cuenta</strong>.
+            </p>
+            <p className="font-medium text-[var(--card-foreground)]">Cómo solicitar la eliminación de tu cuenta</p>
+            <ol className="list-decimal list-inside space-y-1 text-[var(--muted-foreground)]">
+              <li>
+                Usa el mismo <strong>correo electrónico</strong> con el que inicias sesión en la app.
+              </li>
+              <li>
+                En &quot;Tipo de solicitud&quot;, elige <strong>Eliminar mis datos</strong> (incluye baja de la cuenta
+                y datos asociados según se indica en la{' '}
+                <Link href="/privacy-policy" className="text-blue-600 hover:underline">
+                  Política de Privacidad
+                </Link>
+                ).
+              </li>
+              <li>
+                Opcional: añade en &quot;Detalles adicionales&quot; que deseas{' '}
+                <strong>eliminar la cuenta de la app</strong> y cualquier contexto útil.
+              </li>
+              <li>Envía el formulario y conserva el <strong>ID de solicitud</strong> que te mostraremos.</li>
+            </ol>
+            <p className="text-[var(--muted-foreground)]">
+              Trataremos la solicitud en un plazo de hasta <strong>30 días</strong> cuando así lo exija la ley
+              aplicable. Podemos pedirte que verifiques que eres el titular del correo. Los plazos de retención y
+              borrado (incluido el borrado definitivo tras un periodo de gracia) están descritos en la política de
+              privacidad.
+            </p>
+          </CardContent>
+        </Card>
+
         <Card>
           <CardHeader>
             <CardTitle className="text-2xl">Solicitud de Protección de Datos</CardTitle>

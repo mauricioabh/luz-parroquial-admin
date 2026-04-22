@@ -13,9 +13,11 @@ export default function PrivacyPolicyPage() {
           <section>
             <h2 className="text-2xl font-semibold mb-4">1. Introducción</h2>
             <p>
-              Luz Parroquial ("nosotros", "nuestro" o "nos") está comprometido con la protección de su privacidad. 
-              Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos su información 
-              cuando utiliza nuestra plataforma de gestión parroquial (el "Servicio").
+              Luz Parroquial (&quot;nosotros&quot;, &quot;nuestro&quot; o &quot;nos&quot;) está comprometido con la
+              protección de su privacidad. Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y
+              protegemos su información cuando utiliza la <strong>aplicación móvil Luz Parroquial</strong> (oración y
+              contenido espiritual), la <strong>plataforma web de gestión parroquial</strong> y los servicios asociados
+              en conjunto (el &quot;Servicio&quot;).
             </p>
             <p>
               Al usar nuestro Servicio, usted acepta la recopilación y el uso de información de acuerdo con esta 
@@ -111,11 +113,21 @@ export default function PrivacyPolicyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold mb-4">8. Privacidad de los Menores</h2>
+            <h2 className="text-2xl font-semibold mb-4">8. Privacidad de los menores</h2>
             <p>
-              Nuestro Servicio no está dirigido a personas menores de 18 años. No recopilamos conscientemente 
-              información personal de menores. Si usted es padre o tutor y cree que su hijo nos ha proporcionado 
-              información personal, por favor contáctenos inmediatamente.
+              El Servicio puede ser utilizado por personas de distintas edades, incluidas familias. Si usted es menor
+              de edad en su país de residencia, debe usar el Servicio con la supervisión y, cuando la ley lo exija, el
+              consentimiento de su padre, madre o tutor legal.
+            </p>
+            <p className="mt-3">
+              No recopilamos a sabiendas información personal de menores de 13 años sin el consentimiento verificable de
+              los padres o tutores cuando así lo exijan leyes aplicables (por ejemplo, COPPA en Estados Unidos). Si cree
+              que un menor nos ha proporcionado datos sin el consentimiento adecuado, contáctenos de inmediato mediante
+              el{' '}
+              <a href="/data-request" className="text-blue-600 hover:underline">
+                formulario de solicitud de datos
+              </a>
+              .
             </p>
           </section>
 
